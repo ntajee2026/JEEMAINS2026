@@ -67,28 +67,22 @@ function genCaptcha(){
 }
 genCaptcha();
 
-// demo db
-const db={
- "260310087055":{
-  password:"@Tnayare05",
-  name:"Tushar Nayare",
-  percentile:98.76,
-  phy:96,chem:99,maths:97
- }
-};
+function login() {
+  const capIn = document.getElementById('captchaInput').value;
+  const cap = document.getElementById('captcha').innerText;
 
-let currentResult=null;
+  if (capIn !== cap) {
+    alert('CAPTCHA incorrect');
+    genCaptcha();
+    return;
+  }
 
-function login(){
-  if(captchaInput.value!==captcha.innerText){
-    alert("CAPTCHA incorrect");genCaptcha();return;
-  }
-  const r=db[app.value];
-  if(!r||r.password!==pass.value){
-    alert("Invalid Login");return;
-  }
-  currentResult=r;
-  document.getElementById("loginBox").innerHTML=`
+  // CAPTCHA sahi hai → PDF dikhao
+  document.getElementById('loginCard').innerHTML = `
+    <iframe src="result.pdf" frameborder="0" style="width:100%;height:75vh;"></iframe>
+  `;
+}
+
     <h3>Result (Demo)</h3>
     <p><b>Name:</b> ${r.name}</p>
     <p><b>Application No:</b> ${app.value}</p>
@@ -130,4 +124,5 @@ function downloadPDF(){
 
 </body>
 </html>
+
 
