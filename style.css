@@ -1,3 +1,18 @@
+/* Full page setup */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* login / PDF top se start ho */
+  min-height: calc(100vh - 50px); /* topbar height adjust */
+  padding: 10px;
+}
+
 .card {
   width: 100%;
   max-width: 520px;
@@ -6,24 +21,35 @@
   box-shadow: 0 6px 18px rgba(0,0,0,.08);
   overflow: hidden;
   display: flex;
-  flex-direction: column;  /* Important: body expand ho sake */
+  flex-direction: column;
 }
 
 .card-body {
   padding: 18px;
-  flex: 1; /* Makes body expand fully inside card */
+  flex: 1;
 }
+
+/* Iframe full height */
 iframe {
   width: 100%;
-  height: calc(100vh - 120px); /* full viewport height minus header */
+  height: 70vh; /* mobile friendly */
   border: 0;
 }
 
-/* Mobile view */
-@media (max-width: 520px) {
-  iframe {
-    height: calc(100vh - 100px); /* adjust for mobile header/margin */
-  }
+/* Topbar height fix */
+.topbar {
+  height: 50px;
+  line-height: 50px;
 }
 
+/* Responsive mobile */
+@media (max-width: 520px) {
+  .wrap {
+    padding: 5px;
+    min-height: calc(100vh - 50px);
+  }
+  iframe {
+    height: 65vh;
+  }
+}
 
