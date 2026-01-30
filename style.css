@@ -1,0 +1,12 @@
+/* Card responsive */
+@media (max-width: 520px){
+  .row, .captcha-row { grid-template-columns: 1fr; }
+  .card { margin:10px; width:95%; }
+}
+
+/* iframe responsive */
+iframe {
+  width:100%;
+  height:80vh;
+  border:0;
+}
